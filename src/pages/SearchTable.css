@@ -1,0 +1,32 @@
+.busqueda h2{
+    background-color: #ffb5cffe;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.busqueda .buttons{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.busqueda button{
+   width: 110px;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   background-color: #ffb5cffe;
+   margin: 10px;
+   border-radius: 12px;
+   border: solid white;
+   transition: 0.4s;
+}
+
+.busqueda button:hover{
+    background-color: white;
+    transition: 0.4s;
+    border: solid #ffb5cffe;
+    color: #00000095;
+}

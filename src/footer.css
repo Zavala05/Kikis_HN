@@ -1,0 +1,51 @@
+/* ------------------------------------ */
+/* 1. ESTILO DEL CONTENEDOR PRINCIPAL */
+/* ------------------------------------ */
+.footer {
+    /* Fondo oscuro para contraste */
+    background-color: #ffb5cffe; 
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    width: 100%;
+    /* Opcional: Para mantener el footer al final de la página */
+    margin-top: auto; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------ */
+/* 2. ENLACES SOCIALES (REDES) */
+/* ------------------------------------ */
+.social-links {
+    margin-bottom: 15px;
+    /* Usa flexbox para centrar y espaciar los iconos si fuera necesario, aunque ya están centrados por el padre */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los iconos */
+}
+
+/* Estilo para cada etiqueta <a> */
+.icon-link {
+    color: white;
+    text-decoration: none; /* Quita el subrayado */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Estilo para los iconos (FaInstagram, FaWhatsapp, etc.) */
+.social-icon {
+    font-size: 32px; /* Tamaño de los iconos */
+}
+
+/* Efecto Hover: ¡Muy importante para la interactividad! */
+.icon-link:hover {
+    /* Color de realce, puedes usar tu color de marca */
+    color: #98f3ff; 
+    transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+}
+
+
+.copyright {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.8; /* Ligeramente más tenue que los iconos */
+}

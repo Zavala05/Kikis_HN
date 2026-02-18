@@ -3,11 +3,22 @@
  align-items: center;
  text-align: center;
  margin: 30px;   
- background-color: #63616197;
- color: white;
+ background-color: #ffb5cf87;;
+ color: rgb(0, 0, 0);
  padding: 20px;
  border-radius: 10px;
 }
+
+@media (max-width: 750px){
+    .nav-links{
+        justify-content: end;
+        margin: 0;
+    }
+
+}
+   
+
+
 
 
 

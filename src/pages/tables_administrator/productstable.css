@@ -1,0 +1,120 @@
+h3{
+    background-color:  #ffb5cf87;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.sections button{
+    margin: 10px;
+    width: 190px;
+    background-color: white;
+    border: solid 1px;
+    color: #191717;
+    
+}
+
+.sections button:hover{
+    background-color: #ffb5cf87;
+
+}
+
+
+
+
+
+.product-table__wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(132, 110, 110, 0.08);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+.product-table__wrapper h2 {
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+    color: #1d1d1f;
+}
+
+.product-table__container {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.product-table__container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 640px;
+}
+
+.product-table__container th,
+.product-table__container td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #222;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.product-table__container thead th {
+    background: #f5f6fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.82rem;
+}
+
+.product-table__container tbody tr:hover {
+    background: #f8fafc;
+}
+
+.product-table__thumb {
+    height: 60px;
+    width: auto;
+    max-width: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+.product-table__empty,
+.product-table__error {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-table__error {
+    color: #c53030;
+}
+
+.product-table__delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #dc2626;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.product-table__delete:disabled {
+    background: #f87171;
+    cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+    .product-table__container table {
+        font-size: 0.85rem;
+    }
+    .product-table__thumb {
+        height: 40px;
+    }
+}

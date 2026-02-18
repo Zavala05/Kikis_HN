@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 
-function login() {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -19,23 +19,25 @@ function login() {
         setMessage({ text: '', type: '' });
 
        
-        const HARDCODED_EMAIL = 'david@gmail.com';
-        const HARDCODED_PASSWORD = 'David2015';
+        const HARDCODED_EMAIL = import.meta.env.VITE_GMAIL_USER;
+        const HARDCODED_PASSWORD = import.meta.env.VITE_GMAIL_PASSWORD;
 
         if (email === HARDCODED_EMAIL && password === HARDCODED_PASSWORD) {
             setMessage({ 
                 text: '¡Inicio de sesión exitoso!', 
                 type: 'success' 
             });
+            localStorage.setItem('isAdmin', 'true');
             
             setTimeout(() => {
                 window.location.href = '/administrator';
             }, 1000);
         } else {
             setMessage({ 
-                text: 'Credenciales incorrectas. Usuario: admin@example.com, Contraseña: admin123', 
+                text: 'Credenciales incorrectas.', 
                 type: 'error' 
             });
+            localStorage.setItem('isAdmin', 'false');
         }
         
         setLoading(false);
@@ -80,4 +82,4 @@ function login() {
     );
 }
 
-export default login;
+export default Login;

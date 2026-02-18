@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './products.css';
-import supabase from './supabase';
+import supabase from '../supabase';
+import '../products.css'
 
-function Products() {
+export default function Jewels_Products(){
+
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,7 +12,7 @@ function Products() {
         const fetchProducts = async () => {
             try {
                 const { data, error } = await supabase
-                    .from('products')  // Asegúrate de que 'products' sea el nombre exacto de tu tabla en Supabase
+                    .from('joyeria')  
                     .select('*');
                 
                 if (error) {
@@ -40,7 +41,7 @@ function Products() {
 
     return (
         <div className="products">
-            <h1>Nuestros Productos</h1>
+            <h1>Joyeria</h1>
             <div className="products-grid">
                 {products.length > 0 ? (
                     products.map((product) => (
@@ -70,8 +71,7 @@ function Products() {
                     <p>No hay productos disponibles</p>
                 )}
             </div>
+            <footer />
         </div>
     );
 }
-
-export default Products;

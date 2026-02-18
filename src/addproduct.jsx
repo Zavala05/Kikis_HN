@@ -2,12 +2,22 @@ import React, { useState, useRef } from 'react';
 import supabase from './supabase';
 import './addproducts.css';
 
+const TABLE_OPTIONS = [
+    { value: 'joyeria', label: 'Joyeria' },
+    { value: 'cremas', label: 'Cremas' },
+    { value: 'monederos', label: 'Monederos / Carteras' },
+    { value: 'perfumes', label: 'Perfumes'},
+    { value: 'sets', label: 'Sets de productos'}
+];
+
 function AddProduct() {
     const [formData, setFormData] = useState({
         nombre: '',
         descripcion: '',
         precio: '',
-        imagen: null
+        imagen: null,
+        
+        tablaDestino: TABLE_OPTIONS[0].value 
     });
     const [imagePreview, setImagePreview] = useState(null);
     const fileInputRef = useRef(null);
@@ -68,6 +78,13 @@ function AddProduct() {
         setLoading(true);
         setMessage({ text: '', type: '' });
 
+        // Validación adicional: asegurar que haya una imagen
+        if (!formData.imagen) {
+            setMessage({ text: 'Debe agregar una imagen del producto.', type: 'error' });
+            setLoading(false);
+            return;
+        }
+
         try {
             let imageUrl = '';
             
@@ -76,8 +93,9 @@ function AddProduct() {
                 imageUrl = await uploadImage(formData.imagen);
             }
 
-            const { data, error } = await supabase
-                .from('products')
+            // 2. CAMBIADO: Usar el valor de formData.tablaDestino para la inserción
+            const { error } = await supabase
+                .from(formData.tablaDestino) // <<--- ¡Aquí está el cambio clave!
                 .insert([{
                     nombre: formData.nombre,
                     descripcion: formData.descripcion,
@@ -88,7 +106,7 @@ function AddProduct() {
             if (error) throw error;
 
             setMessage({ 
-                text: '¡Producto agregado exitosamente!', 
+                text: `¡Producto agregado exitosamente a la tabla '${formData.tablaDestino}'!`, 
                 type: 'success' 
             });
             
@@ -97,7 +115,8 @@ function AddProduct() {
                 nombre: '',
                 descripcion: '',
                 precio: '',
-                imagen: null
+                imagen: null,
+                tablaDestino: TABLE_OPTIONS[0].value // Resetear al valor predeterminado
             });
             setImagePreview(null);
             if (fileInputRef.current) {
@@ -124,6 +143,24 @@ function AddProduct() {
                 </div>
             )}
             <form onSubmit={handleSubmit} className="product-form">
+                
+                {/* 3. AÑADIDO: Campo de menú desplegable (Select) */}
+                <div className="form-group">
+                    <label>Seleccionar Tabla de Destino:</label>
+                    <select
+                        name="tablaDestino"
+                        value={formData.tablaDestino}
+                        onChange={handleChange}
+                        required
+                    >
+                        {TABLE_OPTIONS.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                
                 <div className="form-group">
                     <label>Nombre del Producto:</label>
                     <input
@@ -164,6 +201,7 @@ function AddProduct() {
                         type="file"
                         name="imagen"
                         onChange={handleChange}
+                        required
                         accept="image/*"
                         ref={fileInputRef}
                         className="file-input"

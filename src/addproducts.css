@@ -26,17 +26,28 @@
     color: #333;
 }
 
+/* 🔄 CAMBIO CLAVE: Se agregó .form-group select aquí */
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select { 
     padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
     transition: border-color 0.3s;
+    /* Ajuste específico para select */
+    appearance: none; /* Oculta el estilo nativo en algunos navegadores */
+    background-color: white; /* Asegura un fondo blanco */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.9H5.4c-7.3%200-11%208.9-6.3%2014.2l140.4%20140.4c4.7%204.7%2012.3%204.7%2017%200L293.3%2084.1c4.7-5.3%201-14.2-6.3-14.2z%22%2F%3E%3C%2Fsvg%3E'); /* Icono de flecha */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 0.65rem auto;
 }
 
+/* 🔄 CAMBIO CLAVE: Se agregó .form-group select:focus aquí */
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: #4a90e2;
     box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
