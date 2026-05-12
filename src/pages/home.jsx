@@ -31,7 +31,7 @@ export default function Home() {
         for (const table of tables) {
           const { data, error: queryError } = await supabase
             .from(table)
-            .select('*');
+            .select('id, nombre, descripcion, precio, imagen_url');
 
           if (queryError) {
             if (queryError.message.includes('Failed to fetch') || 
@@ -197,8 +197,8 @@ export default function Home() {
           </h2>
           {currentPosts.length > 0 ? (
             <div className="products-grid">
-              {currentPosts.map((product) => (
-                <div key={product.id} className="product-card">
+              {currentPosts.map((product, index) => (
+                <div key={`${product.id}-${index}`} className="product-card">
                   {product.imagen_url ? (
                     <img
                       src={product.imagen_url}
