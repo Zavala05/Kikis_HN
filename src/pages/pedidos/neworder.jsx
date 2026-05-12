@@ -146,7 +146,7 @@ export default function NewOrder() {
             if (errorSupabase) throw new Error(errorSupabase.message);
 
             // 3. Enviar Correo con FormSubmit (Lógica AJAX)
-            const destinatario = 'selizabethhn@yahoo.com' ; //correo al que se dirige 
+            const destinatario = 'Selizabethhn@yahoo.com' ; //correo al que se dirige 
             const emailData = new FormData();
             emailData.append('Nombre Cliente', formData.nombre);
             emailData.append('Teléfono', formData.telefono);

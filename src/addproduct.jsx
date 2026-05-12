@@ -7,7 +7,8 @@ const TABLE_OPTIONS = [
     { value: 'cremas', label: 'Cremas' },
     { value: 'monederos', label: 'Monederos / Carteras' },
     { value: 'perfumes', label: 'Perfumes'},
-    { value: 'sets', label: 'Sets de productos'}
+    { value: 'sets', label: 'Sets de productos'},
+    { value: 'hombres', label: 'Hombres'}
 ];
 
 function AddProduct() {

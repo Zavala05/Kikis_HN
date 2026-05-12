@@ -11,7 +11,8 @@ export default function Home() {
     joyeria: [],
     monederos: [],
     perfumes: [],
-    sets: []
+    sets: [],
+    hombres: []
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ export default function Home() {
     const fetchAllProducts = async () => {
       try {
         setLoading(true);
-        const tables = ['cremas', 'joyeria', 'monederos', 'perfumes', 'sets'];
+        const tables = ['cremas', 'joyeria', 'monederos', 'perfumes', 'sets', 'hombres'];
         const allProducts = {};
 
         for (const table of tables) {
@@ -118,7 +119,8 @@ export default function Home() {
       ...products.joyeria,
       ...products.monederos,
       ...products.perfumes,
-      ...products.sets
+      ...products.sets,
+      ...products.hombres
     ];
   }
 
@@ -164,7 +166,7 @@ export default function Home() {
           </p>
           <ol style={{ color: '#856404', textAlign: 'left', maxWidth: '600px', margin: '0 auto' }}>
             <li>Editar el archivo .env.local con tus credenciales de Supabase</li>
-            <li>Crear las tablas requeridas (cremas, joyeria, monederos, perfumes, sets)</li>
+            <li>Crear las tablas requeridas (cremas, joyeria, monederos, perfumes, sets, hombres)</li>
             <li>Configurar RLS para permitir lecturas publicas</li>
             <li>Reiniciar el servidor: npm run dev</li>
             <li>Limpiar cache: Ctrl+F5</li>
@@ -190,6 +192,7 @@ export default function Home() {
             {selectedCategory === 'monederos' && 'Monederos / Carteras'}
             {selectedCategory === 'perfumes' && 'Perfumes / Splash'}
             {selectedCategory === 'sets' && 'Sets de Productos'}
+            {selectedCategory === 'hombres' && 'Hombres'}
             {!selectedCategory && 'Nuestros Productos'}
           </h2>
           {currentPosts.length > 0 ? (

@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Administrator from './pages/administrator';
 import NewOrder from './pages/pedidos/neworder';
+import HombresProducts from './pages/hombres';
 import { useState } from 'react';
 
 function ProtectedRoute({ children }) {
@@ -58,6 +59,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/nuevopedido" element={<NewOrder />} />
+          <Route path="/hombres" element={<HombresProducts />} />
           <Route
             path="/administrator"
             element={

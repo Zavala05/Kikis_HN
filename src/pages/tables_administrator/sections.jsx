@@ -7,7 +7,8 @@ export default function Sections({ onSelectCategory, selectedCategory }) {
     { id: 'joyeria', label: 'Joyeria' },
     { id: 'monederos', label: 'Monederos' },
     { id: 'perfumes', label: 'Perfumes' },
-    { id: 'sets', label: 'Sets' }
+    { id: 'sets', label: 'Sets' },
+    { id: 'hombres', label: 'Hombres' }
   ];
 
   return (
