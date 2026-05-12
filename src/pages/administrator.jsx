@@ -6,7 +6,7 @@ import AdminOrders from './tables_administrator/admin_orders.jsx';
 
 
 
-function administrator() {
+function Administrator() {
     return (
         <div className="administrator">
             <h1>Administrador</h1>
@@ -19,4 +19,4 @@ function administrator() {
     );
 }
 
-export default administrator;
+export default Administrator;

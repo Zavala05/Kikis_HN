@@ -7,7 +7,8 @@ const TABLA_PRODUCTOS = [
     'cremas',
     'monederos',
     'perfumes',
-    'sets'
+    'sets',
+    'hombres'
 ];
 
 export default function NewOrder() {
